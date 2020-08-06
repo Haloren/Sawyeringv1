@@ -17,10 +17,8 @@ ActiveRecord::Schema.define(version: 2020_08_06_170610) do
     t.integer "points"
     t.text "description"
     t.integer "members_id", null: false
-    t.integer "categories_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["categories_id"], name: "index_chores_on_categories_id"
     t.index ["members_id"], name: "index_chores_on_members_id"
   end
 
@@ -50,7 +48,6 @@ ActiveRecord::Schema.define(version: 2020_08_06_170610) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "chores", "categories", column: "categories_id"
   add_foreign_key "chores", "members", column: "members_id"
   add_foreign_key "member_chores", "chores", column: "chores_id"
   add_foreign_key "member_chores", "members", column: "members_id"

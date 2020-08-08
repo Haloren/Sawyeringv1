@@ -18,6 +18,7 @@ class HouseholdsController < ApplicationController
     end
 
     def show
+        authenticate
         @household = Household.find_by(params[:id]) #.find_by returns nil / .find use a rescue
         
         redirect_to '/login' if !@household 

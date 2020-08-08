@@ -8,10 +8,11 @@ class HouseholdsController < ApplicationController
         # byebug
         @household = Household.new(household_params)
 
-        if @household.save
+        if @household.save # @household.valid?
             session[:household_id] = @household.id
-            redirect_to @household 
+            redirect_to household_path(@household) #"/households/#{household.id}"
         else 
+            flash[:message] = @household.errors.full_messages
             render :new
         end
     end

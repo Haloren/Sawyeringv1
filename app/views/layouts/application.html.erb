@@ -12,7 +12,7 @@
   <body>
     
     <% if logged_in? %>
-      <%= link_to "Home", household_path %>
+      <%= link_to "Home", household_path(@household) %>
     <% end %>
 
     <%= yield %>

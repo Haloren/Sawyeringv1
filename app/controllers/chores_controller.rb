@@ -16,7 +16,7 @@ class ChoresController < ApplicationController
 
     def create
         byebug #I need to build out memebers before chores so chores can be assigned to the current_member
-        @chore = current_member.chore.build(chore_params) 
+        @chore = Chore.build(chore_params) 
         
         if @chore.save
             redirect_to chore_path(@chore)
@@ -26,11 +26,13 @@ class ChoresController < ApplicationController
     end
 
     def edit
-
+        @chore = Chore.find_by(params[:id])
     end
 
     def update
-
+        @chore = Chore.find_by(params[:id])
+        @chore.update(chore_params)
+        redirect_to chore_path(@chore)
     end
 
     private

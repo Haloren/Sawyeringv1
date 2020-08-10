@@ -1,9 +1,13 @@
 class MembersController < ApplicationController
 
+        def show
+                @member = Member.find_by(params[:id])
+        end
+
         def new
                 @member = Member.new
 
-                @household = Household.find_by(params[:id])
+                @household = Household.find_by(params[:id]) #maybe make this a helper?
         end
 
         def create
@@ -17,9 +21,16 @@ class MembersController < ApplicationController
                 redirect_to member_path(@member)
         end
 
-        def show
+        def edit
                 @member = Member.find_by(params[:id])
         end
+
+        def update
+                @member = Member.find_by(params[:id])
+                @member.update(member_params)
+                redirect_to member_path(@member)
+        end
+        
 
         private
 

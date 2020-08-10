@@ -15,6 +15,7 @@ class ChoresController < ApplicationController
     end
 
     def create
+        # byebug
         @chore = Chore.create(attraction_params)
         redirect_to chore_path(@chore)
     end

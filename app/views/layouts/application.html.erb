@@ -17,6 +17,7 @@
 
     <%= yield %>
 
+    <br>
     <% if logged_in? %>
       <%= link_to "Logout [#{@household.name}]", logout_path, method: "delete" %>
     <% end %>

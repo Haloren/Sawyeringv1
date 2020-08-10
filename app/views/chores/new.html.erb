@@ -1,1 +1,18 @@
 <h1> New Chore Form </h1>
+
+<%= form_for(@chore) do |f| %>
+
+    <%= f.text_field :name, placeholder: "Name of Chore"%>
+    <br>
+    <br>
+    <%= f.number_field :points, placeholder: "Points" %>
+    <br>
+    <br>
+    <%= f.text_area :description, placeholder: "Description"%>
+    <br>
+    <br>
+    <%= f.submit "Create Chore"%>
+    <br>
+    <br>
+
+<% end %>

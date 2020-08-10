@@ -15,9 +15,14 @@ class ChoresController < ApplicationController
     end
 
     def create
-        # byebug
-        @chore = Chore.create(attraction_params)
-        redirect_to chore_path(@chore)
+        byebug #I need to build out memebers before chores so chores can be assigned to the current_member
+        @chore = current_member.chore.build(chore_params) 
+        
+        if @chore.save
+            redirect_to chore_path(@chore)
+        else
+            render :new
+        end
     end
 
     def edit

@@ -1,0 +1,19 @@
+<h1> New Member Form </h1>
+
+<%= form_for(@member) do |f| %>
+
+    <%= f.text_field :name, placeholder: "Name"%>
+    <br>
+    <br>
+    <%= f.number_field :points, placeholder: "Points" %>
+    <br>
+    <br>
+    <%= f.label "Admin" %>
+    <%= f.check_box :admin %>
+    <br>
+    <br>
+    <%= f.submit "Create Member"%>
+    <br>
+    <br>
+
+<% end %>

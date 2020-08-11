@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 2020_08_06_170610) do
     t.string "name"
     t.integer "points"
     t.text "description"
-    t.integer "members_id", null: false
+    t.integer "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["members_id"], name: "index_chores_on_members_id"
+    t.index ["member_id"], name: "index_chores_on_member_id"
   end
 
   create_table "households", force: :cascade do |t|
@@ -31,13 +31,13 @@ ActiveRecord::Schema.define(version: 2020_08_06_170610) do
   end
 
   create_table "member_chores", force: :cascade do |t|
-    t.integer "members_id", null: false
-    t.integer "chores_id", null: false
+    t.integer "member_id", null: false
+    t.integer "chore_id", null: false
     t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["chores_id"], name: "index_member_chores_on_chores_id"
-    t.index ["members_id"], name: "index_member_chores_on_members_id"
+    t.index ["chore_id"], name: "index_member_chores_on_chore_id"
+    t.index ["member_id"], name: "index_member_chores_on_member_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_08_06_170610) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "chores", "members", column: "members_id"
-  add_foreign_key "member_chores", "chores", column: "chores_id"
-  add_foreign_key "member_chores", "members", column: "members_id"
+  add_foreign_key "chores", "members"
+  add_foreign_key "member_chores", "chores"
+  add_foreign_key "member_chores", "members"
 end

@@ -1,11 +1,20 @@
 <h1> All Chores </h1>
+<%= link_to "Create a New Chore", new_chore_path %>
 
-<%= link_to "Create a New Chore", new_chore_path(@chores) %>
+<% if @chores.size == 0 %>
+    <p> No chores have been created </p>
+<% else %>
+    <% @chores.each do |chore|%>
+        <p><%= chore.name %></p>
+    <% end %>
+<% end %>
 
+<% if @chores.size != 0%>
+    <p> Link to Update/Delete </p>
+<% else %>
+    <p> Show nothing </p>
+<% end %>
 
-<p> "List of Chores here as links that go to the chore w/ description" </p>
-<p> "Update/Delete Chore Link will be on individual Chore Show Page" </p>
-
-
+<%= link_to "Create a New Chore", new_chore_path %>
 <br>
 <hr>

@@ -1,22 +1,13 @@
 <h1>Welcome <%= @household.name %> Family! </h1>
+<hr>
 
-
-<br>
-<p> Display all Members with links here </p>
-<% if false %>
-<% counter = 0 %>
-<% while counter < 20 %>
-    <% if counter < 3 %>
-        <p><%= @members[counter][:name] %> - Points: <%= @members[counter][:points] %></p>
-    <% end %>
-    <% counter += 1 %>
+<h3> Household Members </h3>
+<% @members.each do |member|%>
+    <p><%= member.name %></p>
 <% end %>
-<% end %>
-
-<br>
-<br>
 
 <hr>
+
 <h3> Admin Functions </h3>
 <%= link_to "List of Chores", "/chores" %>
 <br>

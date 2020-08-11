@@ -2,8 +2,16 @@
 
 
 <br>
-<%= "List all Members here" %>
-
+<p> Display all Members with links here </p>
+<% if false %>
+<% counter = 0 %>
+<% while counter < 20 %>
+    <% if counter < 3 %>
+        <p><%= @members[counter][:name] %> - Points: <%= @members[counter][:points] %></p>
+    <% end %>
+    <% counter += 1 %>
+<% end %>
+<% end %>
 
 <br>
 <br>

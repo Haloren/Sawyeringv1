@@ -17,12 +17,14 @@ class ChoresController < ApplicationController
     end
 
     def create
-        byebug #I need to build out memebers before chores so chores can be assigned to the current_member
-        @chore = Chore.build(chore_params) 
+        byebug #No params are coming over?
+        @chore = Chore.new(chore_params) 
         
         if @chore.save
+            session[:chore_id] = @chore.id
             redirect_to chore_path(@chore)
         else
+            flash[:message] = @household.errors.full_messages
             render :new
         end
     end

@@ -8,11 +8,10 @@
 
 Household.create(name: "FamilyName", email: "email@email.com", password: "password")
 
-Member.create(name: "NameTrue", points: 1, admin: "true")
-Member.create(name: "NameFalse", points: 0, admin: "false")
+Member.create(name: "NameTrue", points: 1, admin: true)
+Member.create(name: "NameFalse", points: 0, admin: false)
 
-#Everything below this line doesn't work
-Chore.create(name: "Chore1", points: 1, description: "Chore1 instructions go here", member_id: 1)
-Chore.create(name: "Chore2", points: 2, description: "Chore2 instructions go here", member_id: 1)
+Chore.create(name: "Chore1", points: 1, description: "Chore1 instructions go here", member_id: Member.first.id)
+Chore.create(name: "Chore2", points: 2, description: "Chore2 instructions go here", member_id: Member.first.id)
 
-MemberChore.create(members_id: 1, chores_id: 1, comment: "Comment about the chore goes here")
+MemberChore.create(member_id: 1, chore_id: 1, comment: "Comment about the chore goes here")

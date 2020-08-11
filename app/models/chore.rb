@@ -3,7 +3,7 @@ class Chore < ApplicationRecord
   validates :name, presence: true, uniqueness: true 
   validates :points, presence: true
   
-  belongs_to :members
+  belongs_to :member
 
   has_many :member_chores
 	has_many :members, through: :member_chores

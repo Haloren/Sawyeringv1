@@ -11,8 +11,19 @@ Rails.application.routes.draw do
   
   # custom routes go above this line
   resources :member_chores
-  resources :chores
-  resources :members
-  resources :households
+
+  resources :chores do
+    resources :members
+  end
+
+  resources :members do 
+    resources :chores, only: [:new, :create, :index]
+    #/members/:member_id/chores
+  end 
+
+  resources :households do 
+    resources :members
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

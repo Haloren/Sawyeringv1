@@ -1,6 +1,18 @@
 <h1>Welcome <%= @household.name %> Family! </h1>
 
-<%= link_to "Create a New Chore", new_chore_path(@chores) %>
+
+<br>
+<%= "List all Members here" %>
+
+
+<br>
+<br>
+
+<hr>
+<h3> Admin Functions </h3>
+<%= link_to "List of Chores", "/chores" %>
 <br>
 <%= link_to "Add a House Member", new_member_path(@member) %>
 <br>
+
+<hr>

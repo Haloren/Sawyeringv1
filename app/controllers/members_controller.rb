@@ -2,6 +2,8 @@ class MembersController < ApplicationController
 
         def show
                 @member = Member.find_by(params[:id])
+
+                @household = Household.find_by(params[:id])
         end
 
         def new
@@ -35,7 +37,7 @@ class MembersController < ApplicationController
         private
 
         def member_params
-                params.require(:attraction).permit(:name, :points, :admin)
+                params.require(:member).permit(:name, :points, :admin)
         end
 
 end

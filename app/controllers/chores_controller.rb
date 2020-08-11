@@ -1,7 +1,9 @@
 class ChoresController < ApplicationController
 
     def index
-        @chores = Chores.all 
+        @chores = Chore.all 
+
+        @household = Household.find_by(params[:id])
     end
 
     def show

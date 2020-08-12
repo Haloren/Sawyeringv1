@@ -32,18 +32,19 @@ class ChoresController < ApplicationController
     end
 
     def edit
-        @chore = Chore.find_by(params[:id])
+        @chore = Chore.find_by(id: params[:id])
     end
 
     def update
-        @chore = Chore.find_by(params[:id])
+        @chore = Chore.find_by(id: params[:id])
         @chore.update(chore_params)
         redirect_to chores_path
     end
 
     def destroy
-        @chore = Chore.find_by(params[:id])
-        @chore.delete_all
+        @chore = Chore.find_by(id: params[:id])
+        
+        @chore.destroy
         redirect_to chores_path
     end
 

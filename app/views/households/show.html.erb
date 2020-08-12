@@ -1,17 +1,27 @@
 <h1>Welcome <%= @household.name %> Family! </h1>
 <hr>
 
-<h3> Household Members </h3>
 <% @members.each do |member|%>
-    <p><%= link_to "#{member.name}", member_path(member.id) %></p>
+    <p><%= "#{member.name} w/ link_to Chores List associated with this user
+    | Points: #{member.points} "%></p>
 <% end %>
 
 <hr>
 
-<h3> Admin Functions </h3>
-<%= link_to "List of Chores", "/chores" %>
-<br>
+<h2> Admin Functions </h2>
+
+<h4> Add/Edit/Delete a Chore </h4>
+
+<%= link_to "List of Chores", "/chores" %> 
+
+<h4> Add/Edit/Delete Household Members </h4>
+
 <%= link_to "Add a House Member", new_member_path(@member) %>
+
+<% @members.each do |member|%>
+    <p><%= link_to "#{member.name}", member_path(member.id) %></p>
+<% end %>
+
 <br>
 
 <hr>

@@ -1,2 +1,3 @@
 class MemberChoresController < ApplicationController
+    
 end

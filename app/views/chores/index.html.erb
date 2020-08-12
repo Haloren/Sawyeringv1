@@ -1,6 +1,8 @@
 <h1> All Chores </h1>
 <%= link_to "Create a New Chore", new_chore_path %>
 
+<hr>
+
 <% if @chores.size == 0 %>
     <p> No chores have been created </p>
 <% else %>
@@ -9,6 +11,4 @@
     <% end %>
 <% end %>
 
-<%= link_to "Create a New Chore", new_chore_path %>
-<br>
 <hr>

@@ -30,12 +30,12 @@ class MembersController < ApplicationController
         def update
                 @member = Member.find_by(id: params[:id])
                 @member.update(member_params)
-                redirect_to member_path(@member)
+                redirect_to household_path(current_household)
         end
 
         def destroy
-                byebug
-                @member = Member.find_by(id: params[:id])
+                # byebug
+                @member = Member.find_by_id(params[:id])
                 
                 @member.destroy
                 redirect_to household_path(current_household)

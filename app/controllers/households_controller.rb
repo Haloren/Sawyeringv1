@@ -24,7 +24,7 @@ class HouseholdsController < ApplicationController
 
         @household = current_household #.find_by returns nil / .find use a rescue
         
-        redirect_to '/login' if !@household 
+        redirect_to '/login' if !@household #current_household
     end
 
     private

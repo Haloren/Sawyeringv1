@@ -19,16 +19,11 @@ class ChoresController < ApplicationController
     end
 
     def create
-        byebug #No params are coming over?
+        # byebug
         @chore = Chore.new(chore_params) 
+        @chore.save
         
-        if @chore.save
-            session[:chore_id] = @chore.id
-            redirect_to chore_path(@chore)
-        else
-            flash[:message] = @household.errors.full_messages
-            render :new
-        end
+        redirect_to chores_path
     end
 
     def edit
@@ -51,7 +46,7 @@ class ChoresController < ApplicationController
     private
 
     def chore_params
-        params.require(:chore).permit(:name, :points, :description)
+        params.require(:chore).permit(:name, :points, :description, :member_id)
     end
 
 end

@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
 
         def show
-                @member = Member.find_by(params[:id])
+                @member = Member.find_by(id: params[:id])
 
                 @household = current_household
         end

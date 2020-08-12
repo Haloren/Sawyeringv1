@@ -3,7 +3,7 @@
 
 <h3> Household Members </h3>
 <% @members.each do |member|%>
-    <p><%= member.name %></p>
+    <p><%= link_to "#{member.name}", member_path(member.id) %></p>
 <% end %>
 
 <hr>

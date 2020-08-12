@@ -1,1 +1,21 @@
-<h1>Member Page</h1>
+<h1><%= @member.name %></h1>
+
+<%= form_for(@member) do |f| %>
+
+    <p><%= f.text_field :name%></p>
+    
+    <p><%= f.number_field :points%></p>
+
+    <p><%= f.check_box :admin %></p>
+   
+    <%= f.submit "Update"%>
+
+<% end %>
+
+<br> 
+<%= button_to "Delete", @chore, :method => :delete %>
+
+<br>
+
+<%= link_to "Back", :back%>
+<hr>

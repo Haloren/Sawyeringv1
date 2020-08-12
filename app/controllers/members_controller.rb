@@ -20,7 +20,7 @@ class MembersController < ApplicationController
                 params[:member][:admin] == "true" ? @member.admin = true : @member.admin = false
                 @member.save
                 
-                redirect_to member_path(@member)
+                redirect_to household_path(current_household)
         end
 
         def edit
@@ -31,6 +31,12 @@ class MembersController < ApplicationController
                 @member = Member.find_by(params[:id])
                 @member.update(member_params)
                 redirect_to member_path(@member)
+        end
+
+        def destroy
+                @member = Member.find_by(params[:id])
+                @member.delete
+                redirect_to household_path(current_household)
         end
         
 

@@ -5,14 +5,8 @@
     <p> No chores have been created </p>
 <% else %>
     <% @chores.each do |chore|%>
-        <p><%= chore.name %></p>
+        <p> <%= link_to "#{chore.name}", chore_path(chore.id) %> </p>
     <% end %>
-<% end %>
-
-<% if @chores.size != 0%>
-    <p> Link to Update/Delete </p>
-<% else %>
-    <p> Show nothing </p>
 <% end %>
 
 <%= link_to "Create a New Chore", new_chore_path %>

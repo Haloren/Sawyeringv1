@@ -3,13 +3,13 @@ class MembersController < ApplicationController
         def show
                 @member = Member.find_by(params[:id])
 
-                @household = Household.find_by(params[:id])
+                @household = current_household
         end
 
         def new
                 @member = Member.new
 
-                @household = Household.find_by(params[:id]) #maybe make this a helper?
+                @household = current_household
         end
 
         def create

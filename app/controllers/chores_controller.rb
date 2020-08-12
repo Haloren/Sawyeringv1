@@ -3,17 +3,19 @@ class ChoresController < ApplicationController
     def index
         @chores = Chore.all 
 
-        @household = Household.find_by(params[:id])
+        @household = current_household
     end
 
     def show
-
+        @chore = Chore.find_by(id: params[:id])
+        # byebug
+        @household = current_household
     end
 
     def new
         @chore = Chore.new
 
-        @household = Household.find_by(params[:id]) #maybe make this a helper?
+        @household = current_household
     end
 
     def create
@@ -36,7 +38,7 @@ class ChoresController < ApplicationController
     def update
         @chore = Chore.find_by(params[:id])
         @chore.update(chore_params)
-        redirect_to chore_path(@chore)
+        redirect_to chores_path
     end
 
     private

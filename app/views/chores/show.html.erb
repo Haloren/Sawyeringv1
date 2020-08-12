@@ -1,0 +1,20 @@
+<h1> Update/Delete <%= @chore.name %> </h1>
+
+<%= form_for(@chore) do |f| %>
+
+    <p><%= f.text_field :name%></p>
+    
+    <p><%= f.number_field :points%></p>
+
+    <p><%= f.text_area :description%></p>
+   
+    <%= f.submit "Update"%>
+
+<% end %>
+
+<br> 
+<%= button_to "Delete", @chore, :method => :delete %>
+
+<br>
+<%= link_to "Back", :back %>
+<hr>

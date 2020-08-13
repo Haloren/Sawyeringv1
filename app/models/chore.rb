@@ -7,5 +7,5 @@ class Chore < ApplicationRecord
   has_many :created_members, foreign_key: "chore_id", class_name: "Member"
 
   has_many :member_chores
-	has_many :members, through: :member_chores #, source: :chore
+	has_many :members, through: :member_chores
 end

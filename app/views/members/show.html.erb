@@ -1,19 +1,26 @@
 <h1><%= @member.name %></h1>
 
+<% @chores.each do |chore|%>
+    <p><%= "#{chore.name} - #{chore.points} pts" %></p>
+<% end %>
+
+<hr>
+<h2 style="color: red"> Admin: Update/Delete Member</h2>
 <%= form_for(@member) do |f| %>
-
-    <p><%= f.text_field :name%></p>
-    
-    <p><%= f.number_field :points%></p>
-
-    <p><%= f.check_box :admin %></p>
-   
+    <%= f.label "Name" %>
+    <%= f.text_field :name%>
+    <br><br>
+    <%= f.label "Points" %>
+    <%= f.number_field :points%>
+    <br><br>
+    <%= f.label "Admin" %>
+    <%= f.check_box :admin %>
+    <br><br>
     <%= f.submit "Update"%>
 
 <% end %>
 
-<br> 
-<%= button_to "Delete", @chore, :method => :delete %>
+<p>Would you like to DELETE this user? <%= button_to "Delete", @chore, :method => :delete %></p>
 
 <br>
 

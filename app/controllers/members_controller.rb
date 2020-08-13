@@ -2,7 +2,10 @@ class MembersController < ApplicationController
 
         def show
                 @member = Member.find_by(id: params[:id])
-
+                # byebug
+                @chores = Chore.all
+                # @chores = @member.chore
+                
                 @household = current_household
         end
 

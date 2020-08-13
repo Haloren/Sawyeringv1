@@ -3,7 +3,7 @@ class Member < ApplicationRecord
 
 	validates :name, presence: true, uniqueness: true
 
-	# created chores are unique
+	# created members are unique
 	has_many :created_chores, foreign_key: "member_id", class_name: "Chore"
 	
 	# completed_chores can be repeated

@@ -7,7 +7,7 @@
     <p> No chores have been created </p>
 <% else %>
     <% @chores.each do |chore|%>
-        <p> <%= link_to "#{chore.name}", chore_path(chore.id) %> </p>
+        <p> <%= link_to "#{chore.name} - #{chore.points} pts", chore_path(chore.id) %> </p>
     <% end %>
 <% end %>
 

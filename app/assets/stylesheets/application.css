@@ -18,3 +18,10 @@
      background: #c51244;
      color: #fff;
  }
+
+ .copyright {
+    color: #390489;
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+ }

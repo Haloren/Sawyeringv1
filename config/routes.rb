@@ -1,5 +1,5 @@
 Rails.application.routes.draw do 
-  root :to => redirect('/login')
+  root 'households#show'
 
   get '/signup', to: 'households#new'
   # post '/signup', to: 'household#create' 

@@ -18,9 +18,13 @@
     <%= yield %>
 
     <br>
-    <% if logged_in? %>
-      <%= link_to "Logout [#{@household.name}]", logout_path, method: "delete" %>
-    <% end %>
+    <footer>
+        <% if logged_in? %>
+        <%= link_to "Logout [#{@household.name}]", logout_path, method: "delete" %>
+      <% end %>
+      
+      <div class="copyright"><small> &copy;2020 Sawyeringv1 </small></div>
+    </footer>
 
   </body>
 </html>

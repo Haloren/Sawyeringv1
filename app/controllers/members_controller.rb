@@ -18,13 +18,16 @@ class MembersController < ApplicationController
 
         def create
                 @member = Member.create(member_params)
-                
                 # byebug
                 session[:member_id] = @member.id
                 params[:member][:admin] == "true" ? @member.admin = true : @member.admin = false
-                @member.save
-                
-                redirect_to household_path(current_household)
+                if @member.save
+                        redirect_to household_path(current_household)
+                else
+                        @household = current_household
+                        flash[:message] = @member.errors.full_messages
+                        render :new
+                end
         end
 
         def edit
@@ -33,9 +36,13 @@ class MembersController < ApplicationController
 
         def update
                 @member = Member.find_by(id: params[:id])
-                @member.update(member_params)
-
-                redirect_to household_path(current_household)
+                if @member.update(member_params)
+                        redirect_to household_path(current_household)
+                else 
+                        @household = current_household
+                        flash[:message] = @member.errors.full_messages
+                        redirect_to "/members/#{@member.id}" #see if there is a better way to write this member_path(@member)
+                end 
         end
 
         def destroy

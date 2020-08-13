@@ -1,5 +1,9 @@
 <h1> Update/Delete <%= @chore.name %> </h1>
 
+<div class="flashmessage">
+    <%= flash[:message] if flash[:message] %>
+</div>
+
 <%= form_for(@chore) do |f| %>
 
     <p><%= f.text_field :name%></p>

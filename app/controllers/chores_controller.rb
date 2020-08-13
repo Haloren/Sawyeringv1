@@ -19,18 +19,20 @@ class ChoresController < ApplicationController
     end
 
     def create
-        byebug
+        # byebug
         @chore = Chore.new(chore_params) 
         # @chore.member_id = current_member.id
         # @chore = current_household.created_chores.new(chore_params)
         
-        @chore.save
+        if @chore.save
             redirect_to chores_path
-        # if @chore.save
-        #     redirect_to chores_path
-        # else
-        #     render :new
-        # end
+        else
+            @household = current_household
+            # byebug
+            flash[:message] = @chore.errors.full_messages
+            render :new #this breaks because of layout @household
+        end
+ 
     end
 
     def edit

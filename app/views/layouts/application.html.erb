@@ -12,14 +12,17 @@
   <body>
     
     <% if logged_in? %>
+    <nav class='navbar'>
       <%= link_to "Home", household_path(@household) %>
+    </nav>
     <% end %>
+    
 
     <%= yield %>
 
     <br>
     <footer>
-        <% if logged_in? %>
+      <% if logged_in? %>
         <%= link_to "Logout [#{@household.name}]", logout_path, method: "delete" %>
       <% end %>
       

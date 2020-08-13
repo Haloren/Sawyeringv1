@@ -1,5 +1,9 @@
 <h1> New Member Form </h1>
 
+<div class="flashmessage">
+    <%= flash[:message] if flash[:message] %>
+</div>
+
 <%= form_for(@member) do |f| %>
 
     <%= f.text_field :name, placeholder: "Name"%>

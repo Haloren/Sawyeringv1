@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    # before_action :authenticate #this is currently causing to many redirects and breaking (I might have a loop?)
+    before_action :always_admin #:authenticate #this is currently causing to many redirects and breaking (I might have a loop?)
     
     helper_method :current_household, :logged_in?
 
@@ -18,4 +18,7 @@ class ApplicationController < ActionController::Base
             redirect_to login_path if !logged_in?
         end
 
+        def always_admin
+            Member.first.admin = true
+        end
 end

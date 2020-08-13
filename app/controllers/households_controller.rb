@@ -1,4 +1,5 @@
 class HouseholdsController < ApplicationController
+    
 
     def new
         @household = Household.new

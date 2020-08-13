@@ -6,7 +6,7 @@
 <% if @chores.size == 0 %>
     <p> No chores have been created </p>
 <% else %>
-    <% @chores.each do |chore|%>
+    <% @chores.sort_by(&:name).each do |chore|%>
         <p> <%= link_to "#{chore.name} - #{chore.points} pts", chore_path(chore.id) %> </p>
     <% end %>
 <% end %>

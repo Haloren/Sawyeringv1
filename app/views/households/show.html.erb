@@ -2,7 +2,7 @@
 <hr>
 
 <% @members.each do |member|%>
-    <p><%= link_to "#{member.name} | Points: #{member.points}", member_path(member.id) %></p>
+    <p><%= "#{member.admin}" == "true" ? "Admin: " : "" %> <%= link_to "#{member.name} | Points: #{member.points}", member_path(member.id) %></p>   
 <% end %>
 
 <hr>

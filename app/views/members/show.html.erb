@@ -1,7 +1,8 @@
-<h1><%= @member.name %></h1>
+<h1><%= "#{@member.name} Chore List"%></h1>
 
 <% @chores.each do |chore|%>
-    <p><%= "#{chore.name} - #{chore.points} pts" %></p>
+    <h3><%= "#{chore.name} - #{chore.points} pts" %></h3>
+    <p> <%= "#{chore.description}" %></p>
 <% end %>
 
 <hr>

@@ -41,8 +41,13 @@ class ChoresController < ApplicationController
 
     def update
         @chore = Chore.find_by(id: params[:id])
-        @chore.update(chore_params)
-        redirect_to chores_path
+        if @chore.update(chore_params)
+            redirect_to chores_path
+        else 
+            @household = current_household
+            flash[:message] = @chore.errors.full_messages
+            redirect_to "/chores/#{@chore.id}" #see if there is a better way to write this member_path(@member)
+        end 
     end
 
     def destroy

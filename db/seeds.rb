@@ -8,8 +8,8 @@
 
 Household.create(name: "FamilyName", email: "email@email.com", password: "password")
 
-Member.create(name: "NameTrue", points: 1, admin: true)
-Member.create(name: "NameFalse", points: 0, admin: false)
+Member.create(name: "NameTrue", points: 1, admin: true, password: "password", household_id: Household.first.id)
+Member.create(name: "NameFalse", points: 0, admin: false, password: "password", household_id: Household.first.id)
 
 Chore.create(name: "Chore1", points: 1, description: "Chore1 instructions go here", member_id: Member.first.id)
 Chore.create(name: "Chore2", points: 2, description: "Chore2 instructions go here", member_id: Member.first.id)

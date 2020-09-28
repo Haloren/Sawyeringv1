@@ -17,8 +17,10 @@ ActiveRecord::Schema.define(version: 2020_08_06_170610) do
     t.integer "points"
     t.text "description"
     t.integer "member_id", null: false
+    t.integer "household_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["household_id"], name: "index_chores_on_household_id"
     t.index ["member_id"], name: "index_chores_on_member_id"
   end
 
@@ -42,13 +44,18 @@ ActiveRecord::Schema.define(version: 2020_08_06_170610) do
 
   create_table "members", force: :cascade do |t|
     t.string "name"
+    t.string "password_digest"
     t.integer "points"
     t.boolean "admin"
+    t.integer "household_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["household_id"], name: "index_members_on_household_id"
   end
 
+  add_foreign_key "chores", "households"
   add_foreign_key "chores", "members"
   add_foreign_key "member_chores", "chores"
   add_foreign_key "member_chores", "members"
+  add_foreign_key "members", "households"
 end
